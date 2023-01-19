@@ -1,13 +1,14 @@
 import 'react-native-gesture-handler';
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 //Navigation
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 //Components
 import Splash from './src/screens/Splash';
 import Home from './src/screens/Home';
 import Search from './src/screens/Search';
 import { useNavigation } from '@react-navigation/native';
+
 const Stack = createStackNavigator();
 
 const BackButton = () => {
@@ -19,11 +20,20 @@ const BackButton = () => {
 )
     }
 
-export default function App() {
+    const theme = {
+      ...DefaultTheme,
+      colors: {
+        ...DefaultTheme.colors,
+        background: '#fff',
 
+      }
+    }
+
+export default function App() {
   return (
-        <NavigationContainer> 
-          <Stack.Navigator screenOptions={{ headerTitleAlign: 'center'}}>
+        <NavigationContainer theme={theme}> 
+
+          <Stack.Navigator  screenOptions={{ headerTitleAlign: 'center', headerShadowVisible: false}}>
             <Stack.Screen name="Splash" component={Splash} 
             options={{ headerShown: false}}/>
             <Stack.Screen name="Home" component={Home} 

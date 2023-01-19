@@ -10,7 +10,6 @@ const Search = () => {
 
     return (
             <SafeAreaView style={styles.background}>
-                <Text>Search</Text>                
             </SafeAreaView>
     )
 }
